@@ -1,0 +1,10 @@
+{
+    "sqltools.connections": [
+        {
+            "database": "${workspaceFolder:chinook}/Chinook_Sqlite.sqlite",
+            "driver": "SQLite",
+            "name": "chinook",
+            "previewLimit": 50
+        }
+    ]
+}
