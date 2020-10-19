@@ -159,6 +159,7 @@ GROUP BY e.EmployeeId
 ORDER BY "Total Sales" DESC;
 
 -- #19 most Sales in 2009
+-- WRRRONG
 SELECT
     e.FirstName,
     e.LastName,
@@ -169,3 +170,16 @@ FROM Employee e
 WHERE Total = (SELECT MAX(Total)
 FROM Invoice)
 GROUP BY e.EmployeeId;
+
+-- #20 Which sales agent made the most in sales over all?
+-- WRONG
+SELECT
+    e.FirstName,
+    e.LastName,
+    SUM(i.Total) Total
+FROM Employee e
+    JOIN Customer c ON c.SupportRepId = e.EmployeeId
+    JOIN Invoice i on i.CustomerId = c.CustomerId
+WHERE Total = (SELECT MAX(Total)
+FROM Invoice)
+ORDER BY Total DESC;
